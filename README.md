@@ -26,7 +26,7 @@ in tasktray, disp disk access
 #### dmenu
 in tasktray, make menu from desktop icon when right click
 
-タスクトレイに常駐してデスクトップアイコンを右クリックでメニュー化する
+タスクトレイに常駐して右クリックでデスクトップアイコンをメニュー化する
 
 
 ####  trashbox
