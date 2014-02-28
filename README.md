@@ -1,6 +1,6 @@
 # tools for windows, windows 上で作業するためのちょっとしたツール
 
-## bup
+#### bup
 make backup like pdumpfs
 
 pdumpfs 的バックアップ
