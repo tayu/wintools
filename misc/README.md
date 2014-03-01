@@ -15,10 +15,9 @@ change file ext. make shortcut and D&D to this
 
 
 #### move-to-picture.vbs
-move file to folder, if same name is exist, make new name with rename char
+move file to folder, if same name is exist, make new name with random char.
 
-特定のフォルダに移動する。ファイル名が重複するばあい、ランダムに
+特定のフォルダに移動する。ファイル名が重複する場合、ランダムに
 ファイル名に文字を付加する。名前は画像を貯めておくのに使ってるから
-
 
 
