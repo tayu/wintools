@@ -1,9 +1,9 @@
 # misc tools for windows
 
 #### backup.scm
-make backup like pdumpfs, written by [Gauche!](http://practical-scheme.net/gauche/index.html).
+make backup like pdumpfs, written by [Gauche](http://practical-scheme.net/gauche/index.html).
 
-pdumpfs 的バックアップ。[Gauche!](http://practical-scheme.net/gauche/index-j.html) で記述
+pdumpfs 的バックアップ。[Gauche](http://practical-scheme.net/gauche/index-j.html) で記述
 
 
 #### change-ext.vbs
