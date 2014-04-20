@@ -59,3 +59,9 @@ move to trashbox. usefull, make shorcut in SendTo folder.
 ゴミ箱に捨てる。ショートカットを作って「送る」フォルダに置いておくと便利
 
 
+
+####  misc
+misc tools. see 'misc' directory.
+
+その他のツール。説明は misc ディレクトリの中
+
