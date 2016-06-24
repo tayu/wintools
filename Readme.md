@@ -64,4 +64,3 @@ move to trashbox. usefull, make shorcut in SendTo folder.
 misc tools. see 'misc' directory.
 
 その他のツール。説明は misc ディレクトリの中
-
