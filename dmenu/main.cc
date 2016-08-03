@@ -43,7 +43,7 @@ HINSTANCE HInstance = NULL;
 
 
 // -- REPORT ---------------------------------------------------------
-void REPORT( TCHAR * format, ... ) {
+void REPORT( const TCHAR * format, ... ) {
   TCHAR buf[1024];
   va_list args;
   va_start( args, format );
@@ -51,7 +51,7 @@ void REPORT( TCHAR * format, ... ) {
   va_end( args );
   MessageBox( NULL, buf, TEXT( "message" ), MB_OK | MB_ICONINFORMATION );
 }
-void ABORT( TCHAR * format, ... ) {
+void ABORT( const TCHAR * format, ... ) {
   TCHAR buf[1024];
   va_list args;
   va_start( args, format );
@@ -307,7 +307,7 @@ void popupmenu( HWND hwnd ) {
   }
   mii.fMask = MIIM_FTYPE | MIIM_STRING | MIIM_ID;
   mii.fType = MFT_STRING;
-  mii.dwTypeData = TEXT( "Quit" );
+  mii.dwTypeData = (LPTSTR)TEXT( "Quit" );
   mii.wID = IDM_EXIT;
   if ( 0 == InsertMenuItem( topmenu, IDM_EXIT, FALSE, &mii ) ) {
     REPORT( TEXT( "ERROR: InsertMenuItem(): IDM_EXIT" ) );
@@ -454,7 +454,6 @@ LRESULT CALLBACK WindowProc(
 	  lpdis->rcItem.left += 5;
 
 	  // text
-	  COLORREF cr;
 	  if ( ODS_SELECTED & lpdis->itemState ) {
 
 	    // cr = SetTextColor( lpdis->hDC, RGB( 0, 0, 255 ) );
@@ -479,6 +478,7 @@ LRESULT CALLBACK WindowProc(
 	    ABORT( TEXT( "ERROR: WM_DRAWITEM: DrawText()" ) );
 	  }
 	  if ( ODS_SELECTED & lpdis->itemState ) {
+	    COLORREF cr = CLR_INVALID;
 	    cr = SetTextColor( lpdis->hDC, cr);
 	    if ( CLR_INVALID == cr ) {
 	      ABORT( TEXT( "ERROR: SetTextColor(): reset" ) );

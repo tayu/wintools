@@ -1,36 +1,39 @@
 # Desktop menu
 
-GCC	= ~/bin/mingw32/bin/i686-pc-mingw32-g++
-RC	= ~/bin/mingw32/bin/i686-pc-mingw32-windres
-cflags	= -mwindows -Wall
-efile	= dmenu.exe
-ofiles	= main.o
-rfiles	= $(ofiles:.o=.res)
+GCC	= /usr/bin/x86_64-w64-mingw32-g++
+RC	= /usr/bin/x86_64-w64-mingw32-windres
+cflags	= -Wall -Werror
+lflags	= -mwindows -static-libstdc++ -static-libgcc
 rflags	= -O coff
-lflags	= -mwindows -Wall -Wl
+
+cfiles	= main.cc
+ofiles	= $(cfiles:.cc=.o)
+efile	= dmenu.exe
+rfiles	= $(cfiles:.cc=.res)
+
+outdir	= /media/sf_share/wintools/
+outfile	= $(outdir)/$(efile)
 
 
+all: $(outfile)
 
-all: $(efile)
-
-
+$(outfile): $(efile)
+	cp $< $@
 
 $(efile): $(ofiles) $(rfiles)
 	$(GCC) $(lflags) -o $@ $+
 
-
 $(rfiles): main.rc
 	$(RC) $(rflags) -o $@ $+
 
+clean:
+	rm $(ofiles) $(rfiles)
 
-release:
-	rm $(ofiles) $(rfiles) *~
-
-clean: release
-	rm $(efile)
+dist-clean: clean
+	rm $(outfile) $(efile)
 
 .cc.o:
-	$(GCC) $(cflags) -c -o $@ $+
+	$(GCC) -c $(cflags) $< -o $@
 
 .rc.res:
 	$(RC) $(rflags) -o $@ $+

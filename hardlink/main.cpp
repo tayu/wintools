@@ -94,7 +94,7 @@ int WINAPI WinMain(
     // MESSAGE( TEXT( "Args: %d: %s  -->  %s" ), argc, argv[1], argv[2] );
 
     if ( 3 != argc ) {
-        MESSAGE( TEXT( "ERROR: use only 2 argument" ) );
+        MESSAGE( TEXT( "ERROR: need 2 argument: src & dst" ) );
 	ExitProcess( EXIT_FAILURE );
     }
     CreateLink( argv[1], argv[2] );

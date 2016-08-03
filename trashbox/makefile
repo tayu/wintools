@@ -1,22 +1,28 @@
-GCC	= ~/bin/mingw32/bin/i686-pc-mingw32-gcc -mwindows
-cflags	= -Wall
-lflags	=
-TMP	= /tmp
+GCC	= /usr/bin/x86_64-w64-mingw32-gcc -mwindows
+cflags	= -Wall -Werror
+lflags	= -mwindows
 
-efile	= trashbox.exe
-ofiles	= main.o
 cfiles	= main.c
+ofiles	= $(cfiles:.c=.o)
+efile	= trashbox.exe
+
+outdir	= /media/sf_share/wintools/
+outfile	= $(outdir)/$(efile)
 
 
+all: $(outfile)
 
-
-all: $(efile)
+$(outfile): $(efile)
+	cp $< $@
 
 $(efile): $(ofiles)
 	$(GCC) $(lflags) $< -o $@
 
 clean:
-	rm $(efile) $(ofiles)
+	rm $(ofiles)
+
+dist-clean: clean
+	rm $(outfile) $(efile)
 
 .c.o:
 	$(GCC) -c $(cflags) $< -o $@

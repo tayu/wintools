@@ -1,12 +1,12 @@
-GCC	= /usr/bin/x86_64-w64-mingw32-g++
+CC	= /usr/bin/x86_64-w64-mingw32-gcc
 cflags	= -Wall -Werror
 lflags	= -mwindows
 
-cfiles	= main.cc
-ofiles	= $(cfiles:.cc=.o)
-efile	= cachedt.exe
+cfiles	= main.c
+ofiles	= $(cfiles:.c=.o)
+efile	= hello.exe
 
-outdir	= /media/sf_share/wintools
+outdir	= /media/sf_share/wintools/
 outfile	= $(outdir)/$(efile)
 
 
@@ -16,7 +16,7 @@ $(outfile): $(efile)
 	cp $< $@
 
 $(efile): $(ofiles)
-	$(GCC) $(lflags) $< -o $@
+	$(CC) $(lflags) $< -o $@
 
 clean:
 	rm $(ofiles)
@@ -24,6 +24,5 @@ clean:
 dist-clean: clean
 	rm $(outfile) $(efile)
 
-.cc.o:
-	$(GCC) -c $(cflags) $< -o $@
-
+.c.o:
+	$(CC) -c $(cflags) $< -o $@

@@ -131,7 +131,7 @@ int WINAPI WinMain(
   // MESSAGE( TEXT( "Args: %d: %s" ), argc, argv[1] );
 
   if ( 2 != argc ) {
-    MESSAGE( TEXT( "ERROR: argument number" ) );
+    MESSAGE( TEXT( "ERROR: need target name" ) );
     ExitProcess( EXIT_FAILURE );
   }
 
